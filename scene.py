@@ -85,6 +85,23 @@ class Presentation(Scene):
         # self.add(text1)
         self.wait(5)
 
-        # l = MathTex(
-        #     r"\mathbb{E}_{\textbf{P}[e^{-\alpha t}\left( X(t) - K)^{+}] = c"
-        # )
+        l = MathTex(
+            r"\mathbb{E}_{\textbf{P}}[e^{-\alpha t}\left( X(t) - K \right)^{+}] = c"
+        )
+        self.add(l)
+        self.wait(5)
+
+        m = MathTex(
+            r"c_{i} = \mathbb{E}_{\textbf{P}}[e^{-\alpha t_{i}}\left( X(t_{i}) - K_{i} \right)^{+}], \quad i = 1, \dots, N"
+        )
+        self.add(m)
+        self.wait(5)
+
+
+class Test(Scene):
+    def construct(self):
+        n = MathTex(
+            r""
+        )
+        self.add(n)
+        self.wait(5)
