@@ -25,11 +25,13 @@ y asumimos que tenemos un factor de descuento $\alpha$, por lo que el valor pres
 	e^{-\alpha t}X(t)
 \end{equation*}
 \end{frame}
+
 \begin{frame}
 	Estamos interesados en el comportamiento de esta acción en el intervalo de tiempo $[0,T]$\par
 	Suponiendo que tenemos opciones compradas a tiempo 0, la opción tiene costo c por acción, lo que nos dará la opción de comprar acciones a tiempo t, por el precio fijo de K por cada una de las acciones.\par
 	Lo que buscamos con Black-Scholes es determinar el precio c tal que no se tenga arbitraje
 \end{frame}
+
 \begin{frame}
 	De esto se sigue que no habrá una estrategia financiera que garantice un retorno positivo si y solo si existe una medida de probabilidad P sobre el conjunto de posibilidades tal que el total de las apuestas tenga esperanza de retorno 0
 
@@ -53,15 +55,18 @@ Por lo tanto, el valor presente de la opción es:
 e^{-\alpha t}\left( X(t) - K \right)^{+}
 \end{equation*}
 \end{frame}
+
 \begin{frame}
 Si c es el costo de la opción a tiempo 0, y queremos tener un retorno de la opción esperado igual a 0, necesitamos que:
 \begin{equation} \label{eq:2}
 \mathbb{E}_{\textbf{P}}[e^{-\alpha t}\left( X(t) - K \right)^{+}] = c
 \end{equation}
 \end{frame}
+
 \begin{frame}
 	Por el teorema de arbitraje, si podemos encontrar una medida de probabilidad $\textbf{P}$ en el conjunto de resultados que satisfaga la ecuación \ref{eq:1}, y si c está dado como en la ecuación \ref{eq:2}, entonces no es posible que haya arbitraje.
 \end{frame}
+
 \begin{frame}
 A continuación presentamos una medida de probabilidad $\textbf{P}$ en el resultado $X(t),\quad 0 \leq t \leq T$ que satisface la ecuación \ref{eq:1}\par
 Supongamos que
