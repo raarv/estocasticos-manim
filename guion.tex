@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\usepackage[skip=10pt plus1pt, indent=40pt]{parskip}
+%Information to be included in the title page:
+\title{Black Scholes}
+\author{Fernanda, Rafael y Fernanda}
+\institute{ITAM}
+\date{2022}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+A continuación explicaremos a mayor detalle cómo funciona Black-Scholes.
+Comenzaremos con una acción X, para la cual el valor presente es:
+\begin{equation*}
+X(0) = x_{0}
+\end{equation*}
+a tiempo t, su precio es:
+\begin{equation*}
+X(t)
+\end{equation*}
+y asumimos que tenemos un factor de descuento $\alpha$, por lo que el valor presente de la acción a tiempo t es
+\begin{equation*}
+	e^{-\alpha t}X(t)
+\end{equation*}
+\end{frame}
+\begin{frame}
+	Estamos interesados en el comportamiento de esta acción en el intervalo de tiempo $[0,T]$\par
+	Suponiendo que tenemos opciones compradas a tiempo 0, la opción tiene costo c por acción, lo que nos dará la opción de comprar acciones a tiempo t, por el precio fijo de K por cada una de las acciones.\par
+	Lo que buscamos con Black-Scholes es determinar el precio c tal que no se tenga arbitraje
+\end{frame}
+\begin{frame}
+	De esto se sigue que no habrá una estrategia financiera que garantice un retorno positivo si y solo si existe una medida de probabilidad P sobre el conjunto de posibilidades tal que el total de las apuestas tenga esperanza de retorno 0
+
+\begin{equation} \label{eq:1}
+\mathbb{E}_{\textbf{P}}[e^{-\alpha t} X(t) | X(u), 0 \leq u \leq s] = e^{-\alpha s} X(s)
+\end{equation}
+\end{frame}
+
+\begin{frame}
+Dado que tenemos un call a tiempo t por un precio K, el valor de la opción al tiempo t está dado por:
+\begin{align*}
+	X(t) - K, \quad &\text{si } X(t) \ge K\\
+        0,  \quad &\text{si } X(t) < K
+\end{align*}
+Escrito de otra manera, el valor de la opción a tiempo t es:
+\begin{equation*}
+\left( X(t) - K \right)^{+}
+\end{equation*}
+Por lo tanto, el valor presente de la opción es:
+\begin{equation*}
+e^{-\alpha t}\left( X(t) - K \right)^{+}
+\end{equation*}
+\end{frame}
+\begin{frame}
+Si c es el costo de la opción a tiempo 0, y queremos tener un retorno de la opción esperado igual a 0, necesitamos que:
+\begin{equation} \label{eq:2}
+\mathbb{E}_{\textbf{P}}[e^{-\alpha t}\left( X(t) - K \right)^{+}] = c
+\end{equation}
+\end{frame}
+\begin{frame}
+	Por el teorema de arbitraje, si podemos encontrar una medida de probabilidad $\textbf{P}$ en el conjunto de resultados que satisfaga la ecuación \ref{eq:1}, y si c está dado como en la ecuación \ref{eq:2}, entonces no es posible que haya arbitraje.
+\end{frame}
+\begin{frame}
+A continuación presentamos una medida de probabilidad $\textbf{P}$ en el resultado $X(t),\quad 0 \leq t \leq T$ que satisface la ecuación \ref{eq:1}\par
+Supongamos que
+\begin{equation*}
+	X(t) = x_{0}e^{Y(t)}
+\end{equation*}
+Donde $\{Y(t),\ t\geq 0\}$ es un proceso de movimiento Browniano con coeficiente de deriva $\mu$ y varianza $\sigma^2$. Por lo que $\{X(t),\ t\geq 0\}$ es un proceso Browniano geométrico.
+\end{frame}
+
+\end{document}
